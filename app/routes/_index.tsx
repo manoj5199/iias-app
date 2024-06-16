@@ -27,8 +27,8 @@ import {
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "IIAS" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Integrations IAS" },
+    { name: "description", content: "Welcome to Integrations IAS!" },
   ];
 };
 export type LodeDataType = {

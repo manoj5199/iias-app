@@ -63,7 +63,7 @@ const index = ({ overlay }: { overlay?: boolean }) => {
       ref={formWindow}
       method="POST"
     >
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap flex-1">
         <Input lable="firstname"></Input>
         <Input lable="lastname"></Input>
       </div>

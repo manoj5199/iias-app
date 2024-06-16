@@ -2,6 +2,7 @@ import ContactForm from "./form";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { IoLocationSharp } from "react-icons/io5";
+import { Logo } from "..";
 
 const index = () => {
   return (
@@ -13,9 +14,12 @@ const index = () => {
         <h1 className="self-center mt-10 text-orange-500 font-medium lg:text-2xl capitalize">
           contact us
         </h1>
-        <div className="flex flex-col lg:flex-row items-center">
-          <div className="lg:flex-1 flex flex-col gap-5">
+        <div className="flex w-full flex-col lg:flex-row items-center">
+          <div className="flex-1 flex flex-col gap-5">
             <h1 className="capitalize font-semibold text-xl">get in touch</h1>
+
+            <Logo />
+
             <div className="flex gap-3 items-center p-5 rounded-md bg-white">
               <div className="rounded-full p-2 bg-orange-400 text-xl text-white">
                 <MdOutlineMailOutline />
