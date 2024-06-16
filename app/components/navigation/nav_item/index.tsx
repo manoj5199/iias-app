@@ -4,7 +4,7 @@ import SubNav from "../sub_nav";
 
 const index = ({ title, to, sub_nav }: NavItemDataProp) => {
   return (
-    <li className="w-full md:w-auto md:[&:hover>.con]:pt-4 [&:hover>a]:text-orange-500 [&:hover>.con]:h-fit md:[&:hover>.con]:h-max md:h-full flex relative flex-col">
+    <li className="w-full md:w-auto md:[&:hover>.con]:pt-4 [&:hover>a]:text-amber-500 [&:hover>.con]:h-fit md:[&:hover>.con]:h-max md:h-full flex relative flex-col">
       <NavLink
         to={to ? to! : "#"}
         className={({ isActive }) => {

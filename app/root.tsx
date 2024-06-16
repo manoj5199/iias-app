@@ -7,6 +7,10 @@ import {
 } from "@remix-run/react";
 
 import "./root.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
