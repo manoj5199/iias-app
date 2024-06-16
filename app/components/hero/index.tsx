@@ -28,6 +28,7 @@ function index() {
             interval={3000}
             infiniteLoop={true}
             stopOnHover={true}
+            swipeable={false}
             onClickItem={() => {
               navigate("#contact");
             }}
@@ -45,6 +46,7 @@ function index() {
             showStatus={false}
             interval={3000}
             infiniteLoop={true}
+            swipeable={false}
             onClickItem={() => {
               navigate("#contact");
             }}
