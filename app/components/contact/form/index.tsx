@@ -3,6 +3,7 @@ import { Form, useFetcher } from "@remix-run/react";
 import { Ref, useEffect, useRef, useState } from "react";
 import { Overlay, TextArea } from "~/components";
 import Input from "~/components/input";
+import { CgCloseO } from "react-icons/cg";
 
 const index = ({ overlay }: { overlay?: boolean }) => {
   const fetcher = useFetcher({ key: "add-to-queries" });
@@ -59,10 +60,27 @@ const index = ({ overlay }: { overlay?: boolean }) => {
   }, [fetcher.state]);
   const Form = (
     <fetcher.Form
-      className="flex flex-col gap-3 rounded-lg bg-white p-8 shadow-md"
+      className={`flex flex-col gap-3 rounded-lg bg-white p-8 pt-7 shadow-md ${
+        overlay
+          ? "bg-gradient-to-br from-gray-50 to-orange-50 shadow-lg rounded-2xl"
+          : ""
+      }`}
       ref={formWindow}
       method="POST"
     >
+      {overlay && (
+        <div className="flex items-center justify-between">
+          <p></p>
+          <CgCloseO
+            size={20}
+            className="text-orange-400 cursor-pointer hover:text-gray-500"
+            onClick={(e) => {
+              e.preventDefault();
+              setContactModal(false);
+            }}
+          />
+        </div>
+      )}
       <div className="flex gap-6 flex-wrap flex-1">
         <Input lable="firstname"></Input>
         <Input lable="lastname"></Input>
@@ -70,7 +88,7 @@ const index = ({ overlay }: { overlay?: boolean }) => {
       <Input lable="email" type="email" />
       <TextArea lable="subject" />
       <button
-        className="px-7 py-4 bg-orange-400 rounded-md uppercase font-medium"
+        className={`px-7 py-4 bg-orange-500 rounded-md uppercase font-medium text-white`}
         onClick={(e) => {
           e.preventDefault();
           submitHandler();

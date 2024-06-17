@@ -17,13 +17,14 @@ import {
 import { MdOutlineMailOutline } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 
-import { json, useLoaderData } from "@remix-run/react";
+import { json, useLoaderData, useNavigate } from "@remix-run/react";
 import {
   blogs,
   courses as coursesDB,
   customers,
   gallery,
 } from "~/database/index.server";
+import { useEffect } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -66,6 +67,10 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 };
 
 export default function Index() {
+  useEffect(() => {
+    document.documentElement.scrollTop = 0;
+  }, []);
+
   return (
     <>
       <ContactForm overlay={true} />
@@ -74,7 +79,8 @@ export default function Index() {
           <p className="flex gap-2 items-center">
             <MdOutlineMailOutline />
             integrationsacademy@gmail.com
-            <span>|</span> <FaPhone /> +91 9940079880
+            <span>|</span> <FaPhone /> 9940079880{" "}
+            <span className="hidden md:block">/</span> 9382154124
           </p>
         </div>
       </section>

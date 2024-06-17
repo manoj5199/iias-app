@@ -33,8 +33,14 @@ function index() {
               navigate("#contact");
             }}
           >
-            <img src={hero_1} className="h-[500px] w-full object-fill" />
-            <img src={hero_1} className="h-[500px] w-full object-cover" />
+            <img
+              src={hero_1}
+              className="h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] w-full object-fill"
+            />
+            <img
+              src={hero_1}
+              className="h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] w-full object-cover"
+            />
           </Carousel>
         </div>
         <div className="w-full lg:w-[70%]">
@@ -52,7 +58,11 @@ function index() {
             }}
           >
             {images.map((img, i) => (
-              <img src={img} key={i} className="h-[500px] object-cover" />
+              <img
+                src={img}
+                key={i}
+                className="h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] object-cover"
+              />
             ))}
           </Carousel>
         </div>

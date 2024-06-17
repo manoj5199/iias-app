@@ -7,8 +7,7 @@ import {
 } from "@remix-run/react";
 
 import "./root.css";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+// import "animate.css/animate.compat.css";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -18,6 +17,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+        ></link>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
