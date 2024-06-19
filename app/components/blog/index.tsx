@@ -14,7 +14,13 @@ const index = () => {
         <div className="w-10/12 h-max flex flex-wrap justify-between gap-5">
           {blogCategory.map((category, i) => (
             <div
-              className="bg-gray-50 min-w-[300px] flex-1 rounded-lg px-6 py-4"
+              className={`bg-gray-50 min-w-[300px] flex-1 rounded-lg px-6 py-4 ${
+                category === blogCategory[0]
+                  ? "bg-amber-50"
+                  : category === blogCategory[1]
+                  ? "bg-sky-50"
+                  : "bg-purple-50"
+              }`}
               key={i}
             >
               <h1 className="font-semibold text-slate-900 capitalize mb-6">
@@ -27,7 +33,13 @@ const index = () => {
                       <a
                         href={value.document}
                         download
-                        className="bg-gray-200 block rounded-md px-5 py-2"
+                        className={`block rounded-md px-5 py-2 ${
+                          category === blogCategory[0]
+                            ? "bg-amber-100 hover:bg-amber-200"
+                            : category === blogCategory[1]
+                            ? "bg-sky-100 hover:bg-sky-200"
+                            : "bg-purple-100 hover:bg-purple-200"
+                        }`}
                         key={i}
                       >
                         <h1 className="capitalize font-semibold text-slate-900">

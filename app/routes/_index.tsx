@@ -56,7 +56,13 @@ export const loader: LoaderFunction = async ({}) => {
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   const data = await request.json();
+
   if (data.type === "contact") {
+    const { firstname, lastname, email, subject } = data.data;
+
+    if (!firstname || !lastname || !email || !subject) {
+      return json({ error: false, message: "invalid input" });
+    }
     let id = (await customers.insertOne(data.data)).insertedId;
     console.log(id);
     return json({ error: false, message: "success", data: data.data });

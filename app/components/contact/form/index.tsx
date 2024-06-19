@@ -9,7 +9,8 @@ const index = ({ overlay }: { overlay?: boolean }) => {
   const fetcher = useFetcher({ key: "add-to-queries" });
   const [contactModal, setContactModal] = useState(true);
   const formWindow = useRef<HTMLFormElement>(null);
-  const loading = fetcher.state === "loading";
+  const [errorMessage, setErrorMessage] = useState("");
+  const loading = fetcher.state === "submitting";
 
   useEffect(() => {
     let click = (e: any) => {
@@ -51,13 +52,30 @@ const index = ({ overlay }: { overlay?: boolean }) => {
   };
 
   useEffect(() => {
-    if (fetcher.state === "idle") {
-      formWindow.current?.reset();
+    let resData: { error: boolean; message: string; data?: any } | any =
+      fetcher.data;
+
+    if (resData) {
+      // setErrorMessage(resData.message);
+      if (resData.error) {
+      } else {
+        setContactModal(false);
+        formWindow.current?.reset();
+      }
     }
-    if (fetcher.data) {
-      setContactModal(false);
-    }
-  }, [fetcher.state]);
+  }, [fetcher.data]);
+
+  // const responseData: any = fetcher.data;
+  // useEffect(() => {
+  //   if (responseData) {
+  //     responseData?.error
+  //       ? setErrorMessage(responseData.message)
+  //       : formWindow.current?.reset();
+  //   }
+  //   if (!responseData?.error) {
+  //     setContactModal(false);
+  //   }
+  // }, [fetcher.data]);
   const Form = (
     <fetcher.Form
       className={`flex flex-col gap-3 rounded-lg bg-white p-8 pt-7 shadow-md ${
@@ -82,11 +100,12 @@ const index = ({ overlay }: { overlay?: boolean }) => {
         </div>
       )}
       <div className="flex gap-6 flex-wrap flex-1">
-        <Input lable="firstname"></Input>
-        <Input lable="lastname"></Input>
+        <Input lable="firstname" required={true}></Input>
+        <Input lable="lastname" required={true}></Input>
       </div>
-      <Input lable="email" type="email" />
-      <TextArea lable="subject" />
+      <Input lable="email" type="email" required={true} />
+      <TextArea lable="subject" required={true} />
+      <p className="leading-4 text-red-400">{errorMessage}</p>
       <button
         className={`px-7 py-4 bg-orange-500 rounded-md uppercase font-medium text-white`}
         onClick={(e) => {
