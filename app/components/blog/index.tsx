@@ -1,4 +1,4 @@
-import { useActionData, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import ScrollAnimation from "react-animate-on-scroll";
 import { LodeDataType } from "~/routes/_index";
 
@@ -14,7 +14,7 @@ const index = () => {
         <div className="w-10/12 h-max flex flex-wrap justify-between gap-5">
           {blogCategory.map((category, i) => (
             <div
-              className={`bg-gray-50 min-w-[300px] flex-1 rounded-lg px-6 py-4 ${
+              className={`min-w-[300px] flex-1 rounded-lg px-6 py-4 ${
                 category === blogCategory[0]
                   ? "bg-amber-50"
                   : category === blogCategory[1]
