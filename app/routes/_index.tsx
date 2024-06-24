@@ -34,6 +34,7 @@ export const meta: MetaFunction = () => {
 };
 export type LodeDataType = {
   successCanditates: [{ name: string; position: string; img_url: string }];
+  facultiesData: [{ name: string; position: string; img_url: string }];
   blogData: [
     { title: string; description: string; document: string; category: string }
   ];
